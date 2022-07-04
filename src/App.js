@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import '@elastic/eui/dist/eui_theme_dark.css';
+import { ThemeProvider } from 'styled-components';
 
-function App() {
+import { EuiProvider } from '@elastic/eui';
+import createCache from '@emotion/cache';
+import GlobalStyles from './styles/global-styles';
+
+import Routes from './routes';
+import theme from './styles/global';
+
+const App = () => {
+  const cache = createCache({
+    key: 'template',
+    container: document.querySelector('meta[name="emotion-styles"]'),
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <EuiProvider colorMode="dark" cache={cache}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <Routes />
+      </ThemeProvider>
+    </EuiProvider>
   );
-}
+};
 
 export default App;
