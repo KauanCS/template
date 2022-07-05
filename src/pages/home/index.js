@@ -1,7 +1,12 @@
+import {
+  Container,
+  Title,
+} from './styles';
+
 const Home = () => (
-  <div>
-    Minha home
-  </div>
+  <Container>
+    <Title>DESTAQUES</Title>
+  </Container>
 );
 
 export default Home;

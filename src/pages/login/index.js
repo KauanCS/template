@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import {
   Container,
@@ -17,9 +18,14 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [checked, setChecked] = useState(false);
+  const navigate = useNavigate();
 
   const handleSwitch = () => {
     setChecked(!checked);
+  };
+
+  const pushToHome = () => {
+    navigate('/home');
   };
 
   return (
@@ -42,6 +48,7 @@ const Login = () => {
 
         <Button
           fullWidth
+          onClick={pushToHome}
         >
           ENTRAR
         </Button>

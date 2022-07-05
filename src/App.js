@@ -1,4 +1,4 @@
-import '@elastic/eui/dist/eui_theme_dark.css';
+import '@elastic/eui/dist/eui_theme_light.css';
 import { ThemeProvider } from 'styled-components';
 
 import { EuiProvider } from '@elastic/eui';
@@ -15,7 +15,7 @@ const App = () => {
   });
 
   return (
-    <EuiProvider colorMode="dark" cache={cache}>
+    <EuiProvider colorMode="light" cache={cache}>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         <Routes />
