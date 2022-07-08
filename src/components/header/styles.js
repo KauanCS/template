@@ -6,7 +6,7 @@ export const Container = styled.div`
   padding: 10px;
   height: 80px;
   align-items: center;
-  background-color: ${(props) => props.theme.color.backgroundHeader};
+  background-color: ${(props) => props.theme.color.navyDark};
   justify-content: space-between;
 `;
 

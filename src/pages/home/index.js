@@ -1,11 +1,43 @@
 import {
   Container,
+  ContainerCategory,
+  ContainerTitle,
+  ContainerGames,
   Title,
+  Line,
 } from './styles';
+
+import gameData from '../../core/utils/gameData';
+
+import GameCard from '../../components/gameCard';
 
 const Home = () => (
   <Container>
-    <Title>DESTAQUES</Title>
+    <ContainerCategory>
+      <ContainerTitle>
+        <Title>DESTAQUES</Title>
+        <Line />
+      </ContainerTitle>
+
+      <ContainerGames>
+        {gameData.map((game) => (
+          <GameCard key={game.id} game={game} />
+        ))}
+      </ContainerGames>
+    </ContainerCategory>
+
+    <ContainerCategory>
+      <ContainerTitle>
+        <Title largeSize>Mais Vendidos</Title>
+        <Line />
+      </ContainerTitle>
+
+      <ContainerGames>
+        {gameData.map((game) => (
+          <GameCard key={game.id} game={game} />
+        ))}
+      </ContainerGames>
+    </ContainerCategory>
   </Container>
 );
 

@@ -31,6 +31,19 @@ const GlobalStyles = createGlobalStyle`
       width: 0px;
     }
   }
+
+  &.euiButton--primary {
+    background-color: ${(props) => props.theme.color.accent};
+    color: ${(props) => props.theme.color.black};
+  }
+
+  &.euiButton--primary:hover {
+    background-color: ${(props) => props.theme.color.accentHover} !important;
+  }
+  
+  &.euiButton--primary:focus {
+    background-color: ${(props) => props.theme.color.accent} !important;
+  }
 `;
 
 export default GlobalStyles;
