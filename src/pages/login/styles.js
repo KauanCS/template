@@ -40,6 +40,10 @@ export const ContainerBottom = styled.div`
   gap: 10px;
 `;
 
+export const Form = styled.form`
+  width: 100%;
+`;
+
 export const Input = styled.input`
   padding: 10px;
   background: ${(props) => props.theme.color.backgroundInput};
@@ -52,22 +56,7 @@ export const Input = styled.input`
   }
 `;
 
-export const Button = styled(EuiButton)`
-  &.euiButton--primary {
-    background-color: ${(props) => props.theme.color.accent};
-    color: ${(props) => props.theme.color.black} !important;
-  }
-  :hover {
-    &.euiButton--primary {
-      background-color: ${(props) => props.theme.color.accentHover};
-    }
-  }
-  :focus {
-    &.euiButton--primary {
-      background-color: ${(props) => props.theme.color.accent};
-    }
-  }
-`;
+export const Button = styled(EuiButton)``;
 
 export const Switch = styled(EuiSwitch)`
   &&.euiSwitch .euiSwitch__body {
@@ -81,6 +70,11 @@ export const Switch = styled(EuiSwitch)`
     background: ${(props) => props.theme.color.switchColor};
     border-color: ${(props) => props.theme.color.switchColor};
   }
+`;
+
+export const ErrorText = styled.p`
+  margin-top: 10px;
+  color: ${(props) => props.theme.color.error};
 `;
 
 export const Link = styled.a``;
