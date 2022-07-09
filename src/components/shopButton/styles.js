@@ -7,7 +7,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  margin-right: 10px;
+  margin-right: 30px;
 `;
 
 export const Icon = styled(EuiIcon)`

@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
+import { useNavigate, createSearchParams } from 'react-router-dom';
 
 import {
   BackgroundDark,
@@ -16,13 +17,25 @@ const GameCard = (props) => {
     game,
   } = props;
 
-  const [showInfo, setShowInfo] = useState(false);
-
   const {
+    id,
     url,
     name,
     value,
   } = game;
+
+  const navigate = useNavigate();
+
+  const [showInfo, setShowInfo] = useState(false);
+
+  const handleNavigate = useCallback(() => {
+    navigate({
+      pathname: '/details',
+      search: createSearchParams({
+        id,
+      }).toString(),
+    });
+  }, [id]);
 
   return (
     <Container
@@ -41,7 +54,7 @@ const GameCard = (props) => {
       <Image src={url} />
       <ContainerButtons showInfo={showInfo}>
         <Button size="s">ADD CART</Button>
-        <Button size="s">DETALHES</Button>
+        <Button size="s" onClick={handleNavigate}>DETALHES</Button>
       </ContainerButtons>
     </Container>
   );
@@ -49,6 +62,7 @@ const GameCard = (props) => {
 
 GameCard.propTypes = {
   game: PropTypes.shape({
+    id: PropTypes.string,
     url: PropTypes.string,
     name: PropTypes.string,
     value: PropTypes.string,

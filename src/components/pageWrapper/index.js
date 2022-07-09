@@ -30,7 +30,7 @@ const PageWrapper = ({ element: Component, ...remainingProps }) => {
 };
 
 PageWrapper.propTypes = {
-  element: PropTypes.node.isRequired,
+  element: PropTypes.func.isRequired,
 };
 
 export default PageWrapper;
