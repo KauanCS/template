@@ -17,7 +17,6 @@ import {
   Title,
   Image,
   LabelPath,
-  LabelGame,
   Line,
   ItemTitle,
 } from './styles';
@@ -42,7 +41,7 @@ const Details = () => {
         <ContainerPath>
           <LabelPath>Home /</LabelPath>
           <LabelPath>{`${gameInfo.category} /`}</LabelPath>
-          <LabelGame>{gameInfo.name}</LabelGame>
+          <LabelPath accent>{gameInfo.name}</LabelPath>
         </ContainerPath>
         <Line />
       </ContainerHeader>

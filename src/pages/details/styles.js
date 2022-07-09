@@ -39,7 +39,7 @@ export const ContainerRight = styled.div`
 
 export const ContainerPath = styled.div`
   display: flex;
-  width: 35%;
+  white-space: nowrap; 
 `;
 
 export const ComponentItem = styled.div`
@@ -72,13 +72,8 @@ export const Title = styled.h1`
 `;
 
 export const LabelPath = styled.p`
-  color: ${(props) => props.theme.color.white};
+  color: ${(props) => (props.accent ? props.theme.color.accent : props.theme.color.white)};
   margin-right: 5px;
-  font-size: 18px;
-`;
-
-export const LabelGame = styled.p`
-  color: ${(props) => props.theme.color.accent};
   font-size: 18px;
 `;
 
@@ -95,6 +90,7 @@ export const Line = styled.div`
   border-radius: 20px;
   background-color: ${(props) => props.theme.color.navyDark};
   align-self: center;
+  margin-left: 5px;
 `;
 
 export const Button = styled(EuiButton)``;

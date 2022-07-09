@@ -28,7 +28,7 @@ const Home = () => (
 
     <ContainerCategory>
       <ContainerTitle>
-        <Title largeSize>Mais Vendidos</Title>
+        <Title>Mais Vendidos</Title>
         <Line />
       </ContainerTitle>
 
