@@ -1,3 +1,6 @@
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Navigation } from 'swiper';
 import {
   Container,
   ContainerCategory,
@@ -11,6 +14,8 @@ import gameData from '../../core/utils/gameData';
 
 import GameCard from '../../components/gameCard';
 
+SwiperCore.use([Navigation]);
+
 const Home = () => (
   <Container>
     <ContainerCategory>
@@ -20,9 +25,17 @@ const Home = () => (
       </ContainerTitle>
 
       <ContainerGames>
-        {gameData.map((game) => (
-          <GameCard key={game.id} game={game} />
-        ))}
+        <Swiper
+          spaceBetween={10}
+          slidesPerView={3}
+          navigation
+        >
+          {gameData.map((game) => (
+            <SwiperSlide key={game.id}>
+              <GameCard game={game} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </ContainerGames>
     </ContainerCategory>
 
@@ -33,9 +46,19 @@ const Home = () => (
       </ContainerTitle>
 
       <ContainerGames>
-        {gameData.map((game) => (
-          <GameCard key={game.id} game={game} />
-        ))}
+        <Swiper
+          spaceBetween={50}
+          slidesPerView={3}
+          navigation
+          onSlideChange={() => console.log('slide change')}
+          onSwiper={(swiper) => console.log(swiper)}
+        >
+          {gameData.map((game) => (
+            <SwiperSlide key={game.id}>
+              <GameCard game={game} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </ContainerGames>
     </ContainerCategory>
   </Container>

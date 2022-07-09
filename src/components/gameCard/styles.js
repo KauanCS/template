@@ -46,7 +46,7 @@ export const Price = styled.p`
 
 export const Image = styled.img`
     float: left;
-    width:  300px;
+    width:  100%;
     height: 200px;
     object-fit: cover;
     border-radius: 5px;
