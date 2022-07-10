@@ -6,7 +6,7 @@ export const Container = styled.div`
   flex-direction: column;
   height: 100%;
   position: absolute;
-  width: ${({ sidebarWidth, isSidebarOpen }) => (isSidebarOpen ? sidebarWidth : 0)}px;
+  width: ${({ sidebarWidth, isSidebarOpen }) => (isSidebarOpen ? sidebarWidth : 0)};
   left: ${({ isSidebarOpen }) => (isSidebarOpen ? 0 : -200)}px;
   top: 0px; 
   background: #FFFFFF;

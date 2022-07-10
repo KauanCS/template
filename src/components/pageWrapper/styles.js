@@ -7,7 +7,7 @@ export const Container = styled.div`
 `;
 export const ContainerComponents = styled.div`
   display: flex;
-  padding-left: ${({ sidebarWidth, isSidebarOpen }) => (isSidebarOpen ? sidebarWidth : 0)}px;
+  padding-left: ${({ sidebarWidth, isSidebarOpen }) => (isSidebarOpen ? sidebarWidth : 0)};
   transition: all 0.2s 0s linear;
   flex-direction: column;
   width: 100%;

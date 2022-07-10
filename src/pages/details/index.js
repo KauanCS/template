@@ -39,8 +39,9 @@ const Details = () => {
 
       <ContainerHeader>
         <ContainerPath>
-          <LabelPath>Home /</LabelPath>
-          <LabelPath>{`${gameInfo.category} /`}</LabelPath>
+          <LabelPath>
+            {`Home / ${gameInfo.category} /`}
+          </LabelPath>
           <LabelPath accent>{gameInfo.name}</LabelPath>
         </ContainerPath>
         <Line />

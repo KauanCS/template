@@ -16,6 +16,8 @@ import GameCard from '../../components/gameCard';
 
 SwiperCore.use([Navigation]);
 
+const IS_MOBILE = window.innerWidth < 768;
+
 const Home = () => (
   <Container>
     <ContainerCategory>
@@ -26,8 +28,8 @@ const Home = () => (
 
       <ContainerGames>
         <Swiper
-          spaceBetween={10}
-          slidesPerView={3}
+          spaceBetween={50}
+          slidesPerView={IS_MOBILE ? 1 : 3}
           navigation
         >
           {gameData.map((game) => (
@@ -48,10 +50,8 @@ const Home = () => (
       <ContainerGames>
         <Swiper
           spaceBetween={50}
-          slidesPerView={3}
+          slidesPerView={IS_MOBILE ? 1 : 3}
           navigation
-          onSlideChange={() => console.log('slide change')}
-          onSwiper={(swiper) => console.log(swiper)}
         >
           {gameData.map((game) => (
             <SwiperSlide key={game.id}>

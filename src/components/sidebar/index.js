@@ -17,6 +17,8 @@ const pages = {
   PROFILE: 'perfil',
 };
 
+const IS_MOBILE = window.innerWidth < 768;
+
 const Sidebar = (props) => {
   const {
     sidebarWidth,
@@ -33,11 +35,17 @@ const Sidebar = (props) => {
   const handleCloseSidebar = () => setIsSidebarOpen(false);
 
   const handleHomeClick = () => {
+    if (IS_MOBILE) {
+      handleCloseSidebar();
+    }
     setCurrentPage(pages.HOME);
     navigate(`/${pages.HOME}`);
   };
 
   const handleProfileClick = () => {
+    if (IS_MOBILE) {
+      handleCloseSidebar();
+    }
     setCurrentPage(pages.PROFILE);
     navigate(`/${pages.PROFILE}`);
   };

@@ -24,10 +24,17 @@ export const ContainerContent = styled.div`
   display: flex;
   padding: 20px;
   gap: 20px;
+  background-color: ${(props) => props.theme.color.backgroundWrapper};
+  @media (max-width: 720px) {
+    flex-direction: column;
+  }
 `;
 
 export const ContainerLeft = styled.div`
   width: 70%;
+  @media (max-width: 720px) {
+    width: 100%;
+  }
 `;
 
 export const ContainerRight = styled.div`

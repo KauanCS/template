@@ -4,10 +4,12 @@ import Sidebar from '../sidebar';
 import Header from '../header';
 import { Container, ContainerComponents } from './styles';
 
-const SIDEBAR_WIDTH = 330;
+const IS_MOBILE = window.innerWidth < 768;
+
+const SIDEBAR_WIDTH = IS_MOBILE ? '100%' : '330px';
 
 const PageWrapper = ({ element: Component, ...remainingProps }) => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(!IS_MOBILE);
   return (
     <Container>
       <Sidebar
