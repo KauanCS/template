@@ -24,13 +24,11 @@ const Sidebar = (props) => {
     sidebarWidth,
     isSidebarOpen,
     setIsSidebarOpen,
+    handleFilterList,
   } = props;
 
   const [currentPage, setCurrentPage] = useState(pages.HOME);
-  const [inputValue, setInputValue] = useState('');
   const navigate = useNavigate();
-
-  const handleChange = (e) => setInputValue(e.target.value);
 
   const handleCloseSidebar = () => setIsSidebarOpen(false);
 
@@ -63,8 +61,7 @@ const Sidebar = (props) => {
       <ContainerItems>
         <InputSearch
           placeholder="BUSCAR"
-          value={inputValue}
-          onChange={handleChange}
+          onChange={(e) => handleFilterList(e.target.value)}
           isClearable
         />
         <Button
@@ -85,9 +82,10 @@ const Sidebar = (props) => {
 };
 
 Sidebar.propTypes = {
-  sidebarWidth: PropTypes.number.isRequired,
+  sidebarWidth: PropTypes.string.isRequired,
   isSidebarOpen: PropTypes.bool.isRequired,
   setIsSidebarOpen: PropTypes.func.isRequired,
+  handleFilterList: PropTypes.func.isRequired,
 };
 
 export default Sidebar;

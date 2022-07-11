@@ -25,6 +25,14 @@ export const ContainerTitle = styled.div`
 export const ContainerGames = styled.div`
   display: flex;
   gap: 5px;
+  height: 100%;
+  & .react-multi-carousel-list {
+    height: 100%;
+    width: 100%;
+  }
+  & .react-multi-carousel-item {
+    padding: 5px;
+  }
 `;
 
 export const Line = styled.div`

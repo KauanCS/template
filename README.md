@@ -1,3 +1,8 @@
+# Instruções para Login
+
+- o campo `email` deve seguir o seguinte padrão: `nome@outroNome.com`
+- o campo senha deve possuir pelo menos 8 caracteres
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

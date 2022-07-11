@@ -1,6 +1,5 @@
 import '@elastic/eui/dist/eui_theme_light.css';
-import 'swiper/swiper-bundle.min.css';
-import 'swiper/swiper.min.css';
+import 'react-multi-carousel/lib/styles.css';
 import { ThemeProvider } from 'styled-components';
 
 import { EuiProvider } from '@elastic/eui';
