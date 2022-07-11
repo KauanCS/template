@@ -48,13 +48,16 @@ const Sidebar = (props) => {
     navigate(`/${pages.HOME}`);
   };
 
-  const handleProfileClick = () => {
-    setCurrentPage(pages.PROFILE);
-  };
-
   const handleCartClick = () => {
+    if (IS_MOBILE) {
+      handleCloseSidebar();
+    }
     setCurrentPage(pages.CART);
     navigate(`/${pages.CART}`);
+  };
+
+  const handleProfileClick = () => {
+    setCurrentPage(pages.PROFILE);
   };
 
   return (

@@ -30,4 +30,5 @@ export const Title = styled.h1`
   font-weight: 500;
   font-size: 28px;
   margin-right: 15px;
+  text-align: center;
 `;
