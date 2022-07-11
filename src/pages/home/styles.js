@@ -43,7 +43,7 @@ export const Line = styled.div`
 `;
 
 export const Title = styled.h1`
-  color: ${(props) => props.theme.color.white};;
+  color: ${(props) => props.theme.color.white};
   font-weight: 500;
   font-size: 28px;
   margin-right: 15px;

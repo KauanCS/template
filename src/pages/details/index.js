@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useCallback, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 
 import gameData from '../../core/utils/gameData';
 
@@ -21,14 +22,21 @@ import {
   ItemTitle,
 } from './styles';
 
-const Details = () => {
+const Details = ({ setListCart }) => {
   const [searchParams] = useSearchParams();
   const [gameInfo, setGameInfo] = useState({});
+  const navigate = useNavigate();
+
   useEffect(() => {
     const id = searchParams.get('id');
     const currentGame = gameData.find((game) => game.id === id);
     setGameInfo(currentGame);
   }, []);
+
+  const handleAddToCart = useCallback(() => {
+    setListCart((list) => [...list, gameInfo]);
+    navigate('/carrinho');
+  }, [gameInfo]);
 
   return (
     <Container>
@@ -72,7 +80,7 @@ const Details = () => {
             </ItemText>
           </ComponentItem>
 
-          <Button>ADICIONAR AO CARRINHO</Button>
+          <Button onClick={handleAddToCart}>ADICIONAR AO CARRINHO</Button>
           <Button>COMPRAR</Button>
         </ContainerRight>
       </ContainerContent>
@@ -80,4 +88,7 @@ const Details = () => {
   );
 };
 
+Details.propTypes = {
+  setListCart: PropTypes.func.isRequired,
+};
 export default Details;

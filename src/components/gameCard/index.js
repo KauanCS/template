@@ -15,6 +15,7 @@ import {
 const GameCard = (props) => {
   const {
     game,
+    setListCart,
   } = props;
 
   const {
@@ -28,7 +29,7 @@ const GameCard = (props) => {
 
   const [showInfo, setShowInfo] = useState(false);
 
-  const handleNavigate = useCallback(() => {
+  const handleDetailsNavigate = useCallback(() => {
     navigate({
       pathname: '/details',
       search: createSearchParams({
@@ -36,6 +37,11 @@ const GameCard = (props) => {
       }).toString(),
     });
   }, [id]);
+
+  const handleCartNavigate = () => {
+    setListCart((arr) => [...arr, game]);
+    navigate('/carrinho');
+  };
 
   return (
     <Container
@@ -53,8 +59,8 @@ const GameCard = (props) => {
       </BackgroundDark>
       <Image src={url} />
       <ContainerButtons showInfo={showInfo}>
-        <Button size="s">ADD CART</Button>
-        <Button size="s" onClick={handleNavigate}>DETALHES</Button>
+        <Button size="s" onClick={handleCartNavigate}>ADD CART</Button>
+        <Button size="s" onClick={handleDetailsNavigate}>DETALHES</Button>
       </ContainerButtons>
     </Container>
   );
@@ -67,6 +73,7 @@ GameCard.propTypes = {
     name: PropTypes.string,
     value: PropTypes.string,
   }).isRequired,
+  setListCart: PropTypes.func.isRequired,
 };
 
 export default GameCard;

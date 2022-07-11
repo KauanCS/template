@@ -33,7 +33,7 @@ const responsive = {
   },
 };
 
-const Home = ({ inputSearch }) => {
+const Home = ({ inputSearch, setListCart }) => {
   const [gameList, setGameList] = useState(gameData);
 
   const handleFilterList = () => {
@@ -65,7 +65,11 @@ const Home = ({ inputSearch }) => {
             removeArrowOnDeviceType={['tablet', 'mobile']}
           >
             {gameList.map((game) => (
-              <GameCard game={game} key={game.id} />
+              <GameCard
+                setListCart={setListCart}
+                game={game}
+                key={game.id}
+              />
             ))}
           </Carousel>
         </ContainerGames>
@@ -89,7 +93,11 @@ const Home = ({ inputSearch }) => {
             removeArrowOnDeviceType={['tablet', 'mobile']}
           >
             {gameList.map((game) => (
-              <GameCard game={game} key={game.id} />
+              <GameCard
+                setListCart={setListCart}
+                game={game}
+                key={game.id}
+              />
             ))}
           </Carousel>
         </ContainerGames>
@@ -100,6 +108,7 @@ const Home = ({ inputSearch }) => {
 
 Home.propTypes = {
   inputSearch: PropTypes.string.isRequired,
+  setListCart: PropTypes.func.isRequired,
 };
 
 export default Home;

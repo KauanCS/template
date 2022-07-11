@@ -11,6 +11,7 @@ import Login from './pages/login';
 import Home from './pages/home';
 import Profile from './pages/profile';
 import Details from './pages/details';
+import Cart from './pages/cart';
 
 const Routes = () => (
   <>
@@ -20,6 +21,7 @@ const Routes = () => (
         <Route path="/home" element={<PageWrapper element={Home} />} />
         <Route path="/details" element={<PageWrapper element={Details} />} />
         <Route path="/perfil" element={<PageWrapper element={Profile} />} />
+        <Route path="/carrinho" element={<PageWrapper element={Cart} />} />
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Switch>
     </Router>

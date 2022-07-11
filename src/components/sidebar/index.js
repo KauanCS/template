@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import {
   Container,
@@ -15,6 +15,7 @@ import Button from '../customButton';
 const pages = {
   HOME: 'home',
   PROFILE: 'perfil',
+  CART: 'carrinho',
 };
 
 const IS_MOBILE = window.innerWidth < 768;
@@ -27,8 +28,15 @@ const Sidebar = (props) => {
     setInputSearch,
   } = props;
 
+  const location = useLocation();
   const [currentPage, setCurrentPage] = useState(pages.HOME);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (location && location.pathname === '/carrinho') {
+      setCurrentPage(pages.CART);
+    }
+  }, [location]);
 
   const handleCloseSidebar = () => setIsSidebarOpen(false);
 
@@ -42,6 +50,11 @@ const Sidebar = (props) => {
 
   const handleProfileClick = () => {
     setCurrentPage(pages.PROFILE);
+  };
+
+  const handleCartClick = () => {
+    setCurrentPage(pages.CART);
+    navigate(`/${pages.CART}`);
   };
 
   return (
@@ -65,6 +78,12 @@ const Sidebar = (props) => {
           onClick={handleHomeClick}
           leftIcon="home"
           label="HOME"
+        />
+        <Button
+          isSelected={currentPage === pages.CART}
+          onClick={handleCartClick}
+          leftIcon="package"
+          label="CARRINHO"
         />
         <Button
           isSelected={currentPage === pages.PROFILE}

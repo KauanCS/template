@@ -11,6 +11,7 @@ const SIDEBAR_WIDTH = IS_MOBILE ? '100%' : '330px';
 const PageWrapper = ({ element: Component, ...remainingProps }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(!IS_MOBILE);
   const [inputSearch, setInputSearch] = useState('');
+  const [listCart, setListCart] = useState([]);
 
   return (
     <Container>
@@ -26,9 +27,15 @@ const PageWrapper = ({ element: Component, ...remainingProps }) => {
       >
         <Header
           setIsSidebarOpen={setIsSidebarOpen}
+          listCart={listCart}
         />
 
-        <Component inputSearch={inputSearch} {...remainingProps} />
+        <Component
+          setListCart={setListCart}
+          listCart={listCart}
+          inputSearch={inputSearch}
+          {...remainingProps}
+        />
       </ContainerComponents>
     </Container>
   );

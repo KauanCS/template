@@ -13,6 +13,7 @@ import ShopButton from '../shopButton';
 const Header = (props) => {
   const {
     setIsSidebarOpen,
+    listCart,
   } = props;
 
   const handleOpenSidebar = () => setIsSidebarOpen(true);
@@ -25,7 +26,7 @@ const Header = (props) => {
       </ContainerSides>
 
       <ContainerSides>
-        <ShopButton />
+        <ShopButton total={listCart.length} />
         <UserButton />
       </ContainerSides>
     </Container>
@@ -34,6 +35,9 @@ const Header = (props) => {
 
 Header.propTypes = {
   setIsSidebarOpen: PropTypes.func.isRequired,
+  listCart: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string,
+  })).isRequired,
 };
 
 export default Header;
