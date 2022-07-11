@@ -24,7 +24,7 @@ const Sidebar = (props) => {
     sidebarWidth,
     isSidebarOpen,
     setIsSidebarOpen,
-    handleFilterList,
+    setInputSearch,
   } = props;
 
   const [currentPage, setCurrentPage] = useState(pages.HOME);
@@ -41,11 +41,7 @@ const Sidebar = (props) => {
   };
 
   const handleProfileClick = () => {
-    if (IS_MOBILE) {
-      handleCloseSidebar();
-    }
     setCurrentPage(pages.PROFILE);
-    navigate(`/${pages.PROFILE}`);
   };
 
   return (
@@ -61,7 +57,7 @@ const Sidebar = (props) => {
       <ContainerItems>
         <InputSearch
           placeholder="BUSCAR"
-          onChange={(e) => handleFilterList(e.target.value)}
+          onChange={(e) => setInputSearch(e.target.value)}
           isClearable
         />
         <Button
@@ -85,7 +81,7 @@ Sidebar.propTypes = {
   sidebarWidth: PropTypes.string.isRequired,
   isSidebarOpen: PropTypes.bool.isRequired,
   setIsSidebarOpen: PropTypes.func.isRequired,
-  handleFilterList: PropTypes.func.isRequired,
+  setInputSearch: PropTypes.func.isRequired,
 };
 
 export default Sidebar;

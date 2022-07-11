@@ -20,6 +20,7 @@ const GlobalStyles = createGlobalStyle`
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
   font-weight: 400;
+  background-color: #2B3C51;
   }
 
   a {

@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import Carousel from 'react-multi-carousel';
 import PropTypes from 'prop-types';
 import {
@@ -10,6 +11,7 @@ import {
 } from './styles';
 
 import GameCard from '../../components/gameCard';
+import gameData from '../../core/utils/gameData';
 
 const responsive = {
   superLargeDesktop: {
@@ -31,62 +33,73 @@ const responsive = {
   },
 };
 
-const Home = ({ gameList }) => (
-  <Container>
-    <ContainerCategory>
-      <ContainerTitle>
-        <Title>DESTAQUES</Title>
-        <Line />
-      </ContainerTitle>
+const Home = ({ inputSearch }) => {
+  const [gameList, setGameList] = useState(gameData);
 
-      <ContainerGames>
-        <Carousel
-          responsive={responsive}
-          swipeable
-          draggable
-          infinite
-          keyBoardControl
-          customTransition="all .5"
-          transitionDuration={500}
-          removeArrowOnDeviceType={['tablet', 'mobile']}
-        >
-          {gameList.map((game) => (
-            <GameCard game={game} key={game.id} />
-          ))}
-        </Carousel>
-      </ContainerGames>
-    </ContainerCategory>
+  const handleFilterList = () => {
+    const newGameList = gameData.filter((value) => value.name.toLowerCase().includes(inputSearch.toLowerCase()));
+    setGameList(newGameList);
+  };
 
-    <ContainerCategory>
-      <ContainerTitle>
-        <Title>Mais Vendidos</Title>
-        <Line />
-      </ContainerTitle>
+  useEffect(() => {
+    handleFilterList();
+  }, [inputSearch]);
 
-      <ContainerGames>
-        <Carousel
-          responsive={responsive}
-          swipeable
-          draggable
-          infinite
-          keyBoardControl
-          customTransition="all .5"
-          transitionDuration={500}
-          removeArrowOnDeviceType={['tablet', 'mobile']}
-        >
-          {gameList.map((game) => (
-            <GameCard game={game} key={game.id} />
-          ))}
-        </Carousel>
-      </ContainerGames>
-    </ContainerCategory>
-  </Container>
-);
+  return (
+    <Container>
+      <ContainerCategory>
+        <ContainerTitle>
+          <Title>DESTAQUES</Title>
+          <Line />
+        </ContainerTitle>
+
+        <ContainerGames>
+          <Carousel
+            responsive={responsive}
+            swipeable
+            draggable
+            infinite
+            keyBoardControl
+            customTransition="all .5"
+            transitionDuration={500}
+            removeArrowOnDeviceType={['tablet', 'mobile']}
+          >
+            {gameList.map((game) => (
+              <GameCard game={game} key={game.id} />
+            ))}
+          </Carousel>
+        </ContainerGames>
+      </ContainerCategory>
+
+      <ContainerCategory>
+        <ContainerTitle>
+          <Title>Mais Vendidos</Title>
+          <Line />
+        </ContainerTitle>
+
+        <ContainerGames>
+          <Carousel
+            responsive={responsive}
+            swipeable
+            draggable
+            infinite
+            keyBoardControl
+            customTransition="all .5"
+            transitionDuration={500}
+            removeArrowOnDeviceType={['tablet', 'mobile']}
+          >
+            {gameList.map((game) => (
+              <GameCard game={game} key={game.id} />
+            ))}
+          </Carousel>
+        </ContainerGames>
+      </ContainerCategory>
+    </Container>
+  );
+};
 
 Home.propTypes = {
-  gameList: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string,
-  })).isRequired,
+  inputSearch: PropTypes.string.isRequired,
 };
 
 export default Home;
