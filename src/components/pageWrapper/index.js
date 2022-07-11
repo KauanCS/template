@@ -10,13 +10,7 @@ const SIDEBAR_WIDTH = IS_MOBILE ? '100%' : '330px';
 
 const PageWrapper = ({ element: Component, ...remainingProps }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(!IS_MOBILE);
-  // const [gameList, setGameList] = useState(gameData);
   const [inputSearch, setInputSearch] = useState('');
-
-  // const handleFilterList = (searchValue) => {
-  //   const newGameList = gameData.filter((value) => value.name.toLowerCase().includes(searchValue.toLowerCase()));
-  //   setGameList(newGameList);
-  // };
 
   return (
     <Container>
